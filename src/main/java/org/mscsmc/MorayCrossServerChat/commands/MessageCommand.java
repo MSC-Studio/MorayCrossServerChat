@@ -1,4 +1,4 @@
-package org.MSCS.CrossServerChat.commands;
+package org.mscsmc.MorayCrossServerChat.commands;
 
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
@@ -7,7 +7,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 
 import java.util.Optional;
 
-import org.MSCS.CrossServerChat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 public class MessageCommand implements SimpleCommand {
     

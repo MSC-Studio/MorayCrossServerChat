@@ -1,4 +1,4 @@
-package org.MSCS.CrossServerChat.listeners;
+package org.mscsmc.MorayCrossServerChat.listeners;
 
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
@@ -10,7 +10,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.MSCS.CrossServerChat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 public class PlayerChatListener {
     

@@ -1,9 +1,9 @@
 {
-  "id": "mscs-crossserverchat",
-  "name": "MSCS CrossServerChat",
+  "id": "moraycrossserverchat",
+  "name": "MorayCrossServerChat",
   "version": "2.0.1",
-  "description": "跨子服聊天插件(没多大意义就对了)",
-  "authors": ["MSCS(Mc_ictuc)"],
+  "description": "跨子服聊天插件",
+  "authors": ["MSCS"],
   "dependencies": [],
-  "main": "org.MSCS.CrossServerChatPlugin"
+  "main": "org.mscsmc.MorayCrossServerChatPlugin"
 }

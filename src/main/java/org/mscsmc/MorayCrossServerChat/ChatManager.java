@@ -1,4 +1,4 @@
-package org.MSCS.CrossServerChat;
+package org.mscsmc.MorayCrossServerChat;
 
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;

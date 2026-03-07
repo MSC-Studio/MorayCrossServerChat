@@ -1,6 +1,6 @@
-package org.MSCS.CrossServerChat.commands;
+package org.mscsmc.MorayCrossServerChat.commands;
 
-import org.MSCS.CrossServerChat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 import com.velocitypowered.api.command.SimpleCommand;
 
