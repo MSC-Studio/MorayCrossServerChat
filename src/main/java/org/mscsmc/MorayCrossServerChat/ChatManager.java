@@ -1,4 +1,4 @@
-package org.mscsmc.MorayCrossServerChat;
+package org.mscsmc.moraycrossserverchat;
 
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
@@ -11,7 +11,8 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ChatManager {
-
+    
+    private final CrossServerChatPlugin plugin;
     private final ProxyServer server;
     
 
@@ -24,6 +25,7 @@ public class ChatManager {
     private final Map<UUID, UUID> privateChatMode = new ConcurrentHashMap<>();
     
     public ChatManager(CrossServerChatPlugin plugin) {
+        this.plugin = plugin;
         this.server = plugin.getServer();
     }
     
@@ -78,7 +80,6 @@ public class ChatManager {
             .append(Component.text(message, NamedTextColor.WHITE))
             .build();
         
-        // 发送消息
         sender.sendMessage(senderMessage);
         target.sendMessage(targetMessage);
         

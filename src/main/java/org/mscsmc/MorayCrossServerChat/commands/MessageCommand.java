@@ -1,13 +1,12 @@
-package org.mscsmc.MorayCrossServerChat.commands;
+package org.mscsmc.moraycrossserverchat.commands;
 
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
 
 import java.util.Optional;
-
-import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 public class MessageCommand implements SimpleCommand {
     

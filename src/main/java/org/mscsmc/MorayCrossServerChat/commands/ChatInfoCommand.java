@@ -1,12 +1,11 @@
-package org.mscsmc.MorayCrossServerChat.commands;
-
-import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
+package org.mscsmc.moraycrossserverchat.commands;
 
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
 
 public class ChatInfoCommand implements SimpleCommand {
     
@@ -27,7 +26,7 @@ public class ChatInfoCommand implements SimpleCommand {
         Player player = (Player) invocation.source();
         var chatManager = plugin.getChatManager();
         
-        // 构建信息消息
+
         Component message = Component.text()
             .append(Component.text("=== 聊天状态 ===\n", NamedTextColor.GOLD, TextDecoration.BOLD))
             .append(Component.text("全局聊天: ", NamedTextColor.GRAY))

@@ -1,5 +1,6 @@
-package org.mscsmc.MorayCrossServerChat.commands;
+package org.mscsmc.moraycrossserverchat.commands;
 
+import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
@@ -7,8 +8,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 
 import java.util.Optional;
-
-import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 public class ReplyCommand implements SimpleCommand {
     
@@ -35,7 +34,7 @@ public class ReplyCommand implements SimpleCommand {
             return;
         }
         
-        // 获取最后私聊对象
+
         Optional<Player> lastChatter = plugin.getChatManager().getLastPrivateChatter(sender.getUniqueId());
         
         if (!lastChatter.isPresent()) {
@@ -45,7 +44,7 @@ public class ReplyCommand implements SimpleCommand {
         
         Player target = lastChatter.get();
         
-        // 检查目标是否在线
+
         if (!target.isActive()) {
             sender.sendMessage(Component.text("玩家 " + target.getUsername() + " 已离线！", NamedTextColor.RED));
             return;
