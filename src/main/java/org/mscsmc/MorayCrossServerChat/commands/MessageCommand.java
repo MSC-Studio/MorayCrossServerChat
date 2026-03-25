@@ -1,10 +1,10 @@
-package org.mscsmc.moraycrossserverchat.commands;
+package org.mscsmc.MorayCrossServerChat.commands;
 
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 import java.util.Optional;
 
@@ -18,13 +18,12 @@ public class MessageCommand implements SimpleCommand {
     
     @Override
     public void execute(Invocation invocation) {
-        if (!(invocation.source() instanceof Player)) {
+        if (!(invocation.source() instanceof Player sender)) {
             invocation.source().sendMessage(
                 Component.text("只有玩家可以使用此命令！", NamedTextColor.RED));
             return;
         }
-        
-        Player sender = (Player) invocation.source();
+
         String[] args = invocation.arguments();
         
         if (args.length < 2) {

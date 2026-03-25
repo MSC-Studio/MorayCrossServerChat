@@ -1,6 +1,6 @@
-package org.mscsmc.moraycrossserverchat.listeners;
+package org.mscsmc.MorayCrossServerChat.listeners;
 
-import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.player.PlayerChatEvent;
@@ -62,11 +62,9 @@ public class PlayerChatListener {
         
 
         var lastChatterOpt = chatManager.getLastPrivateChatter(playerId);
-        lastChatterOpt.ifPresent(lastChatter -> {
-            lastChatter.sendMessage(Component.text(
-                player.getUsername() + " 已断开连接。", 
-                NamedTextColor.GRAY
-            ));
-        });
+        lastChatterOpt.ifPresent(lastChatter -> lastChatter.sendMessage(Component.text(
+            player.getUsername() + " 已断开连接。",
+            NamedTextColor.GRAY
+        )));
     }
 }

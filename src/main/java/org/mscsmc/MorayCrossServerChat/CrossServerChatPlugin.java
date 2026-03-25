@@ -1,4 +1,4 @@
-package org.mscsmc.moraycrossserverchat;
+package org.mscsmc.MorayCrossServerChat;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.command.CommandManager;
@@ -38,14 +38,16 @@ public class CrossServerChatPlugin {
         
 
         if (!dataDirectory.toFile().exists()) {
-            dataDirectory.toFile().mkdirs();
+            if (!dataDirectory.toFile().mkdirs()) {
+                logger.error("无法创建数据目录！");
+            }
         }
         
 
         chatManager = new ChatManager(this);
         
 
-        server.getEventManager().register(this, new org.mscsmc.moraycrossserverchat.listeners.PlayerChatListener(this));
+        server.getEventManager().register(this, new org.mscsmc.MorayCrossServerChat.listeners.PlayerChatListener(this));
         
 
         registerCommands();
@@ -61,52 +63,54 @@ private void registerCommands() {
         .aliases("global", "全局")
         .plugin(this)
         .build();
-    commandManager.register(globalChatMeta, new org.mscsmc.moraycrossserverchat.commands.GlobalChatCommand(this));
+    commandManager.register(globalChatMeta, new org.mscsmc.MorayCrossServerChat.commands.GlobalChatCommand(this));
     
 
     CommandMeta toggleMeta = commandManager.metaBuilder("togglechat")
         .aliases("toggleglobal", "切换聊天", "chat")
         .plugin(this)
         .build();
-    commandManager.register(toggleMeta, new org.mscsmc.moraycrossserverchat.commands.ToggleChatCommand(this));
+    commandManager.register(toggleMeta, new org.mscsmc.MorayCrossServerChat.commands.ToggleChatCommand(this));
     
 
     CommandMeta msgMeta = commandManager.metaBuilder("msg")
         .aliases("tell", "whisper", "w", "私聊", "tell")
         .plugin(this)
         .build();
-    commandManager.register(msgMeta, new org.mscsmc.moraycrossserverchat.commands.MessageCommand(this));
+    commandManager.register(msgMeta, new org.mscsmc.MorayCrossServerChat.commands.MessageCommand(this));
     
 
     CommandMeta replyMeta = commandManager.metaBuilder("r")
         .aliases("reply", "回复")
         .plugin(this)
         .build();
-    commandManager.register(replyMeta, new org.mscsmc.moraycrossserverchat.commands.ReplyCommand(this));
+    commandManager.register(replyMeta, new org.mscsmc.MorayCrossServerChat.commands.ReplyCommand(this));
     
 
     CommandMeta infoMeta = commandManager.metaBuilder("chatinfo")
         .aliases("chathelp", "聊天帮助", "帮助")
         .plugin(this)
         .build();
-    commandManager.register(infoMeta, new org.mscsmc.moraycrossserverchat.commands.ChatInfoCommand(this));
+    commandManager.register(infoMeta, new org.mscsmc.MorayCrossServerChat.commands.ChatInfoCommand(this));
     
 
     CommandMeta listMeta = commandManager.metaBuilder("list")
         .aliases("online", "players", "玩家列表")
         .plugin(this)
         .build();
-    commandManager.register(listMeta, new org.mscsmc.moraycrossserverchat.commands.ListCommand(this));
+    commandManager.register(listMeta, new org.mscsmc.MorayCrossServerChat.commands.ListCommand(this));
 }
     
     public ProxyServer getServer() {
         return server;
     }
-    
+
+    @SuppressWarnings("unused")
     public Logger getLogger() {
         return logger;
     }
-    
+
+    @SuppressWarnings("unused")
     public Path getDataDirectory() {
         return dataDirectory;
     }

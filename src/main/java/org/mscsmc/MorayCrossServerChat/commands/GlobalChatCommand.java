@@ -1,11 +1,11 @@
-package org.mscsmc.moraycrossserverchat.commands;
+package org.mscsmc.MorayCrossServerChat.commands;
 
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 public class GlobalChatCommand implements SimpleCommand {
     
@@ -20,9 +20,8 @@ public class GlobalChatCommand implements SimpleCommand {
         CommandSource source = invocation.source();
         String[] args = invocation.arguments();
         
-        if (source instanceof Player) {
-            Player player = (Player) source;
-            
+        if (source instanceof Player player) {
+
             if (args.length == 0) {
                 player.sendMessage(Component.text("用法: /g <消息>", NamedTextColor.RED));
                 player.sendMessage(Component.text("快捷方式: 在普通聊天前加 !", NamedTextColor.GRAY));

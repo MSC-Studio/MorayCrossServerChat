@@ -1,10 +1,10 @@
-package org.mscsmc.moraycrossserverchat.commands;
+package org.mscsmc.MorayCrossServerChat.commands;
 
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 public class ToggleChatCommand implements SimpleCommand {
     
@@ -16,13 +16,12 @@ public class ToggleChatCommand implements SimpleCommand {
     
     @Override
     public void execute(Invocation invocation) {
-        if (!(invocation.source() instanceof Player)) {
+        if (!(invocation.source() instanceof Player player)) {
             invocation.source().sendMessage(
                 Component.text("只有玩家可以使用此命令！", NamedTextColor.RED));
             return;
         }
-        
-        Player player = (Player) invocation.source();
+
         boolean isNowEnabled = plugin.getChatManager().toggleGlobalChat(player.getUniqueId());
         
         if (isNowEnabled) {

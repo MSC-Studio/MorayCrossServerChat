@@ -1,9 +1,7 @@
-package org.mscsmc.moraycrossserverchat.commands;
+package org.mscsmc.MorayCrossServerChat.commands;
 
 import com.velocitypowered.api.command.SimpleCommand;
-import com.velocitypowered.api.proxy.Player;
-import net.kyori.adventure.text.Component;
-import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 
 public class ListCommand implements SimpleCommand {
     

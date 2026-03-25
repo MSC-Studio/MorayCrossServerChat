@@ -1,4 +1,4 @@
-package org.mscsmc.moraycrossserverchat;
+package org.mscsmc.MorayCrossServerChat;
 
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
@@ -97,8 +97,9 @@ public class ChatManager {
         
         broadcastToAll(announcement);
     }
-    
 
+
+    @SuppressWarnings("unused")
     public void sendServerMessage(String serverName, String message) {
         Component serverMsg = Component.text()
             .append(Component.text("[" + serverName + "]", NamedTextColor.BLUE))
@@ -134,8 +135,9 @@ public class ChatManager {
             privateChatMode.put(playerId, targetId);
         }
     }
-    
 
+
+    @SuppressWarnings("unused")
     public UUID getPrivateChatTarget(UUID playerId) {
         return privateChatMode.get(playerId);
     }
@@ -194,5 +196,9 @@ public class ChatManager {
         }
         
         return builder.build();
+    }
+
+    public CrossServerChatPlugin getPlugin() {
+        return plugin;
     }
 }

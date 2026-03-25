@@ -1,6 +1,6 @@
-package org.mscsmc.moraycrossserverchat.commands;
+package org.mscsmc.MorayCrossServerChat.commands;
 
-import org.mscsmc.moraycrossserverchat.CrossServerChatPlugin;
+import org.mscsmc.MorayCrossServerChat.CrossServerChatPlugin;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
@@ -22,13 +22,11 @@ public class ReplyCommand implements SimpleCommand {
         CommandSource source = invocation.source();
         String[] args = invocation.arguments();
         
-        if (!(source instanceof Player)) {
+        if (!(source instanceof Player sender)) {
             source.sendMessage(Component.text("只有玩家可以使用此命令！", NamedTextColor.RED));
             return;
         }
-        
-        Player sender = (Player) source;
-        
+
         if (args.length == 0) {
             sender.sendMessage(Component.text("用法: /r <消息>", NamedTextColor.RED));
             return;
@@ -37,7 +35,7 @@ public class ReplyCommand implements SimpleCommand {
 
         Optional<Player> lastChatter = plugin.getChatManager().getLastPrivateChatter(sender.getUniqueId());
         
-        if (!lastChatter.isPresent()) {
+        if (lastChatter.isEmpty()) {
             sender.sendMessage(Component.text("你没有最近的私聊对象！", NamedTextColor.RED));
             return;
         }
